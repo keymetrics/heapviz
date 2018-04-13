@@ -1,5 +1,5 @@
 body {
-  overflow: hidden;
+  overflow: auto;
 }
 
 :root {
@@ -13,27 +13,34 @@ body {
   position: relative;
   width: 100%;
   height: 100vh;
-  display: grid;
   background: var(--constrast);
-  grid-template-columns: 300px auto 300px;
   color: var(--text);
 }
 
 .left-rail {
-  grid-column-start: 1;
-  grid-column-end: 2;
-  padding: 20px 20px 20px 0px;
+  padding-top: 16px;
+  margin-bottom: 16px;
+  display: flex;
+  flex-direction: row;
   z-index: 1;
 }
 
 .main-window {
-  grid-column-start: 2;
-  grid-column-end: 3;
+  position: relative;
+  display: flex;
+  flex-direction: row;
+
+  & .node-inspect-container {
+    flex: 1;
+    margin-left: 16px;
+
+    & .CurrentNode {
+      flex: 1;
+    }
+  }
 }
 
 .right-rail {
-  grid-column-start: 3;
-  grid-column-end: 4;
   padding: 20px 0px 20px 20px;
   z-index: 1;
 }
@@ -46,7 +53,7 @@ body {
 
   & .module {
     border-radius: 2px;
-    padding: 20px;
+    padding: 16px;
     background: var(--base);
   }
 

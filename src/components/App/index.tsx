@@ -75,17 +75,19 @@ export const App = ({
         {!computing
           ? <Renderer />
           : null}
+          <div className="node-inspect-container">
+            {hoverNode ? <HoverNode node={hoverNode} /> : null}
+            {
+            currentNode ?
+              <CurrentNode
+                node={currentNode}
+                showEdges={showEdges}
+                showRetainers={showRetainers}
+              /> : null}
+          </div>
         </div>
 
         <div className="right-rail">
-          {hoverNode ? <HoverNode node={hoverNode} /> : null}
-          {
-          currentNode ?
-            <CurrentNode
-              node={currentNode}
-              showEdges={showEdges}
-              showRetainers={showRetainers}
-            /> : null}
             <Tutorial start={start}/>
             <div className="powered-by-container">
               <h2 className="powered-by">Powered by</h2>
