@@ -87,7 +87,10 @@ export const App = ({
               showRetainers={showRetainers}
             /> : null}
             <Tutorial start={start}/>
-            <h1 className="logo">HeapViz!</h1>
+            <div className="powered-by-container">
+              <h2 className="powered-by">Powered by</h2>
+              <h1 className="logo"></h1>
+            </div>
         </div>
         <JoyrideOutlet />
       </div>

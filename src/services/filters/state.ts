@@ -19,9 +19,13 @@ export interface FilterState {
     [key: string]: string|number;
 }
 
+let url = new URL(window.location.href)
+let rets = Number(url.searchParams.get('rets'))
+let selfs = Number(url.searchParams.get('sefs'))
+console.log({rets})
 export const initialFilters: FilterState = {
-    retainedSize: 100,
-    selfSize: 100,
+    retainedSize: rets || 100000,
+    selfSize: selfs || 100,
     edgesCount: 0,
     retainersCount: 0,
     type: 'all'

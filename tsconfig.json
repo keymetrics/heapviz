@@ -13,6 +13,9 @@
             "es2017"
         ]
     },
+    "awesomeTypescriptLoaderOptions": {
+        "ignoreDiagnostics": [2346]
+    },
     "include": [
         "./src/**/*",
         "./typings/**/*"

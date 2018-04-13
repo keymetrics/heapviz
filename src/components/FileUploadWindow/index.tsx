@@ -10,6 +10,7 @@ import { resetCache } from '../../services/canvasCache';
 import { actions as modalActions } from '../../services/modal/state';
 import { actions as heapActions } from '../../services/heap/state';
 import ThumbnailPanels from '../ThumbnailPanels';
+import { push } from 'react-router-redux';
 
 const { file: { fetchLocalFile, loadFile, fileLoaded, dragOver, dragOut } } = actions;
 const { modal: { showModal } } = modalActions;
@@ -22,6 +23,8 @@ interface FileUploadWindowProps {
   onDrop: () => void;
   showHelp: () => FSA;
   testBrowserSupport: () => FSA;
+  loadRemoteFile: () => void;
+  overrideCssProps: () => void;
   size: any;
   fetching: boolean;
   dragging: boolean;
@@ -31,6 +34,8 @@ export class FileUploadWindow extends React.Component<FileUploadWindowProps, {}>
   componentDidMount() {
     resetCache();
     this.props.testBrowserSupport();
+    this.props.overrideCssProps();
+    this.props.loadRemoteFile();
   }
 
   render() {
@@ -98,12 +103,51 @@ export default connect(
         dispatch(loadFile(file.name));
         fr.readAsArrayBuffer(file);
         fr.onloadend = () => {
+          console.log(fr.result)
           dispatch(fileLoaded(fr.result))
           dispatch(transferProfile({
             heap: fr.result,
             width: size * 2
           }));
         };
+      },
+
+      loadRemoteFile() {
+        let url = new URL(window.location.href)
+        let file = url.searchParams.get('file')
+        console.log({file})
+        let access_token = url.searchParams.get('access_token')
+        console.log({access_token})
+        dispatch(loadFile('Heapdump Snapshot'));
+        fetch(file + '?access_token=' + access_token)
+        .then(res => res.arrayBuffer())
+        .then(data => {
+          console.log(data)
+          dispatch(fileLoaded(data))
+          dispatch(transferProfile({
+            heap: data,
+            width: size * 2
+          }))
+        })
+        .catch(console.log)
+      },
+
+      overrideCssProps () {
+        let url = new URL(window.location.href)
+        console.log({url})
+        const styles = document.documentElement.style
+        console.log({styles})
+        let props = {
+          base: decodeURIComponent(url.searchParams.get('base')),
+          contrast: decodeURIComponent(url.searchParams.get('contrast')),
+          text: decodeURIComponent(url.searchParams.get('text'))
+        }
+        console.log(props)
+        Object.entries(props).forEach(entry => {
+          const key = entry[0]
+          const value = entry[1]
+          styles.setProperty(`--${key}`, value)
+        })
       },
 
       testBrowserSupport() {

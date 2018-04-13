@@ -2,18 +2,27 @@ body {
   overflow: hidden;
 }
 
+:root {
+  --base: #E5E9F0;
+  --contrast: #FFFFFF;
+  --primary: #01CEA2;
+  --text: #000000;
+}
+
 .App {
   position: relative;
   width: 100%;
   height: 100vh;
   display: grid;
+  background: var(--constrast);
   grid-template-columns: 300px auto 300px;
+  color: var(--text);
 }
 
 .left-rail {
   grid-column-start: 1;
   grid-column-end: 2;
-  padding: 20px;
+  padding: 20px 20px 20px 0px;
   z-index: 1;
 }
 
@@ -25,7 +34,7 @@ body {
 .right-rail {
   grid-column-start: 3;
   grid-column-end: 4;
-  padding: 20px;
+  padding: 20px 0px 20px 20px;
   z-index: 1;
 }
 
@@ -37,22 +46,32 @@ body {
 
   & .module {
     border-radius: 2px;
-    border:1px solid lightgrey;
     padding: 20px;
+    background: var(--base);
   }
 
   & .btn {
-    background-color: rgb(37, 167, 28);
+    background-color: var(--primary);
     font-size: 0.8rem;
     padding: 0 1rem;
   }
 
-  & h1.logo {
-    top: auto;
-    left: auto;
+  & .powered-by-container {
+    position: absolute;
     bottom: 22px;
     right: 11px;
-    opacity: 0.4;
+    font-size: 0.5rem;
+
+    & h1.logo {
+      background-image: url('/logo.png');
+      background-size: auto 100px;
+      background-repeat: no-repeat;
+      font-size: 0;
+      margin: 0;
+      height: 80px;
+      width: 100px;
+    }
   }
+
 }
 
