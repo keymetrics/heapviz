@@ -62,7 +62,7 @@ export function createCanvases(size: number) {
     const hc = <HTMLCanvasElement>dc.cloneNode();
     const chc = <HTMLCanvasElement>dc.cloneNode();
 
-    const drawCanvas = initWebGL(dc, [255, 255, 255]);
+    const drawCanvas = initWebGL(dc, [0, 0, 0, 0], {alpha: true});
     const hitCanvas = initWebGL(hc, [255, 255, 255], { antialias: false });
 
     const cachedDrawCanvas = init2d(cdc);

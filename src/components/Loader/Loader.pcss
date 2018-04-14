@@ -1,5 +1,5 @@
 .Loader {
-    position: absolute;
+    position: fixed;
     width: 100%;
     height: 100%;
     background: var(--contrast);
@@ -42,26 +42,7 @@
         height: 0;
         border-radius: 10px;
         opacity: 0;
-    }
-
-    & li:nth-child(5n) {
-        background: rgb(37, 167, 28);
-    }
-
-    & li:nth-child(5n + 1) {
-        background: rgb(255, 197, 108);
-    }
-
-    & li:nth-child(5n + 2) {
-        background: rgb(158, 185, 228);
-    }
-
-    & li:nth-child(5n + 3) {
-        background: rgb(255, 106, 0);
-    }
-
-    & li:nth-child(5n + 4) {
-        background: rgb(24, 108, 188);
+        background: var(--primary);
     }
 
     & li:nth-child(1) {

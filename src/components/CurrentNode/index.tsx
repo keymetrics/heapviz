@@ -38,6 +38,7 @@ export const CurrentNode = ({ node, showEdges, showRetainers }: CurrentNodeProps
             <div className="stats">
                 <Stats stats={stats} />
             </div>
+            <div className="flexer"></div>
             {
                 node.edges.length ?
                     <button className="btn waves-effect waves-light" onClick={showEdges}>Edges</button> :

@@ -5,14 +5,11 @@ import { color, hexToColor, padHex, modifyColor } from './colors';
 function createHitColor(i: number, v: number) {
     const base = i.toString(16);
     const hitColor = padHex(base.split(''));
-    console.log(hitColor);
     return hitColor;
 }
 
 export function createHitCircle(node: Node, state: GLState) {
     const { r, x, y, i, v } = node;
-    console.log('i', i)
-    console.log('v', v)
     const hitColor = createHitColor(i, v);
     const color = hexToColor(hitColor).concat(1);
     const hitCircle = createCircle(r, x, y, color, state);

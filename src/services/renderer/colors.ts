@@ -1,4 +1,5 @@
-import { schemeCategory20 as scheme, scaleOrdinal as scale } from 'd3-scale';
+import { schemeCategory20b as scheme, scaleOrdinal as scale } from 'd3-scale';
+import { schemeDark2 } from 'd3-scale-chromatic';
 
 let _colorGenerator: (type: string) => number[];
 

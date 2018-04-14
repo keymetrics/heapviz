@@ -4,6 +4,7 @@
   "private": true,
   "dependencies": {
     "@types/d3-scale": "^1.0.10",
+    "@types/d3-scale-chromatic": "^1.2.0",
     "@types/filesize": "^3.2.15",
     "@types/history": "^4.5.1",
     "@types/lodash": "^4.14.64",

@@ -6,8 +6,7 @@ interface TutorialProps {
 }
 
 export const Tutorial = ({start}:TutorialProps) => (
-    <div className="Tutorial module">
-        <h3>Confused?</h3>
+    <div className="Tutorial">
         <button onClick={start} className="btn waves-effect waves-light">Show tutorial</button>
     </div>
 );

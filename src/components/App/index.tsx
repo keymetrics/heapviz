@@ -68,7 +68,7 @@ export const App = ({
             ? <Filters />
             : null}
 
-          {stats ? <StatsWindow stats={stats} length={nodesLength} /> : null}
+          {stats ? <StatsWindow stats={stats} length={nodesLength} start={start}/> : null}
         </div>
 
         <div className="main-window">
@@ -86,15 +86,13 @@ export const App = ({
               /> : null}
           </div>
         </div>
-
-        <div className="right-rail">
-            <Tutorial start={start}/>
-            <div className="powered-by-container">
-              <h2 className="powered-by">Powered by</h2>
-              <h1 className="logo"></h1>
-            </div>
-        </div>
         <JoyrideOutlet />
+        <div className="powered-by-container">
+          <div className="logo-container">
+            <h2 className="powered-by">Powered by</h2>
+            <img src="/logo.png" alt="Heapviz Logo" className="logo"/>
+          </div>
+        </div>
       </div>
       : <Redirect to="/" />;
 }
