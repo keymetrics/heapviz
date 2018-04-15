@@ -1,9 +1,37 @@
+ @font-face {
+    font-family: 'aeromatics_regular';
+    src: url('../../../public/fonts/aero_matics_regular-webfont.eot');
+    src: url('../../../public/fonts/aero_matics_regular-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../../../public/fonts/aero_matics_regular-webfont.woff2') format('woff2'),
+         url('../../../public/fonts/aero_matics_regular-webfont.woff') format('woff'),
+         url('../../../public/fonts/aero_matics_regular-webfont.ttf') format('truetype'),
+         url('../../../public/fonts/aero_matics_regular-webfont.svg#aero_maticsregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'aeromatics_light';
+    src: url('../../../public/fonts/aero_matics_light-webfont.eot');
+    src: url('../../../public/fonts/aero_matics_light-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../../../public/fonts/aero_matics_light-webfont.woff2') format('woff2'),
+         url('../../../public/fonts/aero_matics_light-webfont.woff') format('woff'),
+         url('../../../public/fonts/aero_matics_light-webfont.ttf') format('truetype'),
+         url('../../../public/fonts/aero_matics_light-webfont.svg#aero_matics_lightregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
 body {
   overflow-y: auto;
   max-width: 100%;
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-family: 'aeromatics_regular';
+}
+
+h1, h2, h3, h4, h5 {
+  font-family: 'aeromatics_light';
 }
 
 /* Override webkit scrollbars */
@@ -15,6 +43,7 @@ body {
  ::-webkit-scrollbar-thumb {
    background: var(--primary);
  }
+
 
 :root {
   --base: #E5E9F0;
