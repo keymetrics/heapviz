@@ -103,7 +103,6 @@ export default connect(
         dispatch(loadFile(file.name));
         fr.readAsArrayBuffer(file);
         fr.onloadend = () => {
-          console.log(fr.result)
           dispatch(fileLoaded(fr.result))
           dispatch(transferProfile({
             heap: fr.result,
@@ -115,14 +114,11 @@ export default connect(
       loadRemoteFile() {
         let url = new URL(window.location.href)
         let file = url.searchParams.get('file')
-        console.log({file})
         let access_token = url.searchParams.get('access_token')
-        console.log({access_token})
         dispatch(loadFile('Heapdump Snapshot'));
         fetch(file + '?access_token=' + access_token)
         .then(res => res.arrayBuffer())
         .then(data => {
-          console.log(data)
           dispatch(fileLoaded(data))
           dispatch(transferProfile({
             heap: data,
@@ -134,15 +130,12 @@ export default connect(
 
       overrideCssProps () {
         let url = new URL(window.location.href)
-        console.log({url})
         const styles = document.documentElement.style
-        console.log({styles})
         let props = {
           base: decodeURIComponent(url.searchParams.get('base')),
           contrast: decodeURIComponent(url.searchParams.get('contrast')),
           text: decodeURIComponent(url.searchParams.get('text'))
         }
-        console.log(props)
         Object.entries(props).forEach(entry => {
           const key = entry[0]
           const value = entry[1]

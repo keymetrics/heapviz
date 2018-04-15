@@ -22,7 +22,6 @@ export interface FilterState {
 let url = new URL(window.location.href)
 let rets = Number(url.searchParams.get('rets'))
 let selfs = Number(url.searchParams.get('sefs'))
-console.log({rets})
 export const initialFilters: FilterState = {
     retainedSize: rets || 10000,
     selfSize: selfs || 100,
