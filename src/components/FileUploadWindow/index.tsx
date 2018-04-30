@@ -114,9 +114,9 @@ export default connect(
       loadRemoteFile() {
         let url = new URL(window.location.href)
         let file = url.searchParams.get('file')
-        let access_token = url.searchParams.get('access_token')
+        // let access_token = url.searchParams.get('access_token')
         dispatch(loadFile('Heapdump Snapshot'));
-        fetch(file + '?access_token=' + access_token)
+        fetch(file)
         .then(res => res.arrayBuffer())
         .then(data => {
           dispatch(fileLoaded(data))
